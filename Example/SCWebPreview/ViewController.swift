@@ -71,9 +71,7 @@ class ViewController: UIViewController {
     
     @IBAction func btnPreview2B(_ sender: UIButton) {
         scWebPreview.openSafariFromUrl(1)
-    }
-    
-    
+    }    
     
     func initMain() {
         
