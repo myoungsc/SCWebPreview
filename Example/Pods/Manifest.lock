@@ -1,0 +1,16 @@
+PODS:
+  - SCWebPreview (0.1.0)
+
+DEPENDENCIES:
+  - SCWebPreview (from `../`)
+
+EXTERNAL SOURCES:
+  SCWebPreview:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  SCWebPreview: 27a164595d5cff6ba60736fbe9d4685ab979724d
+
+PODFILE CHECKSUM: ac6407b54e7fd6960fb3d6ce3a1df763b36b089c
+
+COCOAPODS: 1.2.1

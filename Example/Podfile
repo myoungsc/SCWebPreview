@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'SCWebPreview_Example' do
+  pod 'SCWebPreview', :path => '../'
+
+  target 'SCWebPreview_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

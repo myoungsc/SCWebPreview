@@ -1,0 +1,6 @@
+framework module SCWebPreview {
+  umbrella header "SCWebPreview-umbrella.h"
+
+  export *
+  module * { export * }
+}
