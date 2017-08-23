@@ -7,15 +7,19 @@
 
 ## Description
 A library that get metadata(url, image, title, description) for previewing via Web in HTML.
+
 library support is only https://
-http:// not support because of iOS policy
+
+How to use (http://)
+
+Add "App Transport Security Setting-Allow Arbitrary Loads-YES" in polist file
 
 ## ScreenShot
 
 ## Requirements
-```swift
+```
 * Swift 3.0.1
-* XCode 8.3.3 (8E3004b)
+* XCode 8.3.3
 * iOS 9.0 (Min SDK)
 ```
 
