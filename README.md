@@ -37,7 +37,10 @@ pod install
 - Get metadata from web in HTML
 
 ```swift
+import SCWebPreview
+
 let webPages: [String] = ["https://github.com/myoungsc", "http://devsc.tistory.com/"]
+let scWebPreview = SCWebPreview()
 scWebPreview.initWebPages(webPages)
 scWebPreview.startCrawling(){
     for i in 0 ..< webPages.count {
