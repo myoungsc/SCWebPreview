@@ -8,16 +8,13 @@
 ## Description
 A library that get metadata(url, image, title, description) for previewing via Web in HTML.
 
-library support is only https://
-
 How to use (http://)
-
 Add "App Transport Security Setting-Allow Arbitrary Loads-YES" in polist file
 
 ## ScreenShot
 
 ## Requirements
-```
+```swift
 * Swift 3.0.1
 * XCode 8.3.3
 * iOS 9.0 (Min SDK)
@@ -28,6 +25,7 @@ SCWebPreview is available through [CocoaPods](http://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```swift
+//Add Podfile
 pod "SCWebPreview"
 
 //After
@@ -38,17 +36,17 @@ pod install
 - Get metadata from web in HTML
 
 ```swift
-let webPages: [String] = ["https://github.com/myoungsc"]
-
-let scWebPreview: SCWebPreview = SCWebPreview()
+let webPages: [String] = ["https://github.com/myoungsc", "http://devsc.tistory.com/"]
 scWebPreview.initWebPages(webPages)
 scWebPreview.startCrawling(){
-    let dic = self.scWebPreview.getPreviewDataFromIndex(0)
-    guard dic.count != 0 else {
-        print("error: dic is optionl Value")
-        return
+    for i in 0 ..< webPages.count {
+        let dic = self.scWebPreview.getPreviewDataFromIndex(i)
+        guard dic.count != 0 else {
+            print("error: dic is optionl Value")
+            return
+        }
+        //doSomething
     }
-    self.dataBindingWebPagePreview(dic)
 }
 ```
 
@@ -56,17 +54,7 @@ scWebPreview.startCrawling(){
 
 ```Swift
 let dic = scWebPreview.getPreviewDataFromIndex(0)
-    guard let strUrl: String = dic["og:url"] else {
-    print("error: og:url is optionl Value")
-    return
-}
-
-if let url = URL(string: strUrl) {
-    if #available(iOS 10.0, *) {
-    UIApplication.shared.open(url, options: [:], completionHandler: { (result) in })
-    } else {
-    UIApplication.shared.openURL(url)
-    }
+    scWebPreview.openSafariFromUrl(0)
 }
 ```
 
