@@ -12,6 +12,7 @@ How to use (http://)
 Add "App Transport Security Setting-Allow Arbitrary Loads-YES" in polist file
 
 ## ScreenShot
+![](https://github.com/myoungsc/SCWebPreview/blob/master/SCWebPreview_ScreenShot.gif?raw=true)
 
 ## Requirements
 ```swift
