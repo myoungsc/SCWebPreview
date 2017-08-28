@@ -6,7 +6,7 @@
 
 
 ## Description
-A library that get metadata(url, image, title, description) for previewing via Web in HTML.
+A library that get metadata(og:url, og:image, og:title, og:description) for previewing via Web in HTML.
 
 How to use (http://)
 Add "App Transport Security Setting-Allow Arbitrary Loads-YES" in polist file
@@ -57,9 +57,7 @@ scWebPreview.startCrawling(){
 - example: url open safari
 
 ```Swift
-let dic = scWebPreview.getPreviewDataFromIndex(0)
-    scWebPreview.openSafariFromUrl(0)
-}
+scWebPreview.openSafariFromUrl(0)
 ```
 
 ## Author
