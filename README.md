@@ -54,6 +54,17 @@ scWebPreview.startCrawling(){
 }
 ```
 
+- example: get date form index
+
+```Swift
+let dicWebData: [String: String] = scWebPreview.getPreviewDataFromIndex(0)
+
+print("og:url - \(dicWebData["og:url"]!)")
+print("og:url - \(dicWebData["og:title"]!)")
+print("og:url - \(dicWebData["og:description"]!)")
+print("og:url - \(dicWebData["og:image"]!)")
+```
+
 - example: url open safari
 
 ```Swift
