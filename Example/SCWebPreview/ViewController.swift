@@ -27,7 +27,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         initMain()
-                
+        
         let webPages: [String] = ["https://github.com/myoungsc", "http://devsc.tistory.com/"]
         scWebPreview.initWebPages(webPages)
         scWebPreview.startCrawling(){
@@ -37,11 +37,10 @@ class ViewController: UIViewController {
                     print("error: dic is optionl Value")
                     return
                 }
-                self.dataBindingWebPagePreview(dic, index:i)
             }
         }
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }    

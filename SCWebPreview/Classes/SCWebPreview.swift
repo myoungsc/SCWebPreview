@@ -22,31 +22,32 @@ import UIKit
     //start crawling for Web Preview
     public func startCrawling(completionHandler: @escaping () -> Void) {
         print("start crawling")
-        
-        for (index, content) in webPages.enumerated() {
-            urlFromCheck(content, completionHandler: { webPage in
-                
-                guard let url = URL(string: webPage) else {
-                    print("error: url is option value")
-                    return
-                }
-                let session = URLSession.shared
-                let task = session.dataTask(with: url, completionHandler: { (data, response, error) in
-                    if error == nil {
-                        let dic: [String: String] = self.htmlParser(data!, strUrl: content)
-                        DispatchQueue.main.async {
-                            self.previewDatas[index] = dic
-                            if self.previewDatas.count == self.webPages.count {
-                                print("finish crawling")
-                                completionHandler()
-                            }
-                        }
-                    } else {
-                        print(error?.localizedDescription as Any)
+        for (index, content) in self.webPages.enumerated() {
+            DispatchQueue.global().async {
+                self.urlFromCheck(content, completionHandler: { webPage in
+                    guard let url = URL(string: webPage) else {
+                        print("error: url is option value")
+                        return
                     }
+                    let session = URLSession.shared
+                    let task = session.dataTask(with: url, completionHandler: { (data, response, error) in
+                        if error == nil {
+                            let dic: [String: String] = self.htmlParser(data!, strUrl: content)
+                            self.previewDatas[index] = dic
+                            
+                            if self.previewDatas.count == self.webPages.count {
+                                DispatchQueue.main.async {
+                                    print("finish crawling")
+                                    completionHandler()
+                                }
+                            }
+                        } else {
+                            print(error?.localizedDescription as Any)
+                        }
+                    })
+                    task.resume()
                 })
-                task.resume()
-            })
+            }
         }
     }
     
@@ -89,12 +90,10 @@ import UIKit
         let arr = htmlTag?.components(separatedBy: "<meta")
         
         func arrangement() {
-            
             for i in 1 ..< (arr?.count)! {
                 guard let content: String = arr?[i] else {
                     return
                 }
-                
                 if content.contains("og:title") || content.contains("og:url")
                     || content.contains("og:description") || content.contains("og:image") {
                     
@@ -112,7 +111,7 @@ import UIKit
                     dic[key] = content
                 }
             }
-        }
+        }        
         arrangement()
         
         guard let _: String = dic["og:url"] else {
