@@ -27,7 +27,8 @@ it, simply add the following line to your Podfile:
 
 ```swift
 //Add Podfile
-pod "SCWebPreview"
+pod "SCWebPreview" //Swift 4.0
+pod "SCWebPreview", '~> 0.1.1' //Swift 3.0
 
 //After
 pod install
