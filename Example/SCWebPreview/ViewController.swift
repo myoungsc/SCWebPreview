@@ -37,6 +37,7 @@ class ViewController: UIViewController {
                     print("error: dic is optionl Value")
                     return
                 }
+                self.dataBindingWebPagePreview(dic, index: i)
             }
         }
     }
