@@ -71,7 +71,7 @@ import UIKit
         
         if let url = URL(string: strUrl) {
             if #available(iOS 10.0, *) {
-                UIApplication.shared.open(url, options: [:], completionHandler: { (result) in })
+                UIApplication.shared.open(url, options: [:]) { (result) in }
             } else {
                 UIApplication.shared.openURL(url)
             }
