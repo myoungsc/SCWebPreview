@@ -16,8 +16,8 @@ Add "App Transport Security Setting-Allow Arbitrary Loads-YES" in polist file
 
 ## Requirements
 ```swift
-* Swift 3.0.1
-* XCode 8.3.3
+* Swift 4.2
+* XCode 10.0
 * iOS 9.0 (Min SDK)
 ```
 
