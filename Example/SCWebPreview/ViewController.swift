@@ -30,7 +30,7 @@ class ViewController: UIViewController {
         
         let webPages: [String] = ["https://github.com/myoungsc", "http://devsc.tistory.com/"]
         scWebPreview.initWebPages(webPages)
-        scWebPreview.startCrawling(){
+        scWebPreview.startCrawling() {
             for i in 0 ..< webPages.count {
                 let dic = self.scWebPreview.getPreviewDataFromIndex(i)
                 guard dic.count != 0 else {

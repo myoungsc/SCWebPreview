@@ -16,8 +16,8 @@ Add "App Transport Security Setting-Allow Arbitrary Loads-YES" in polist file
 
 ## Requirements
 ```swift
-* Swift 4.2
-* XCode 10.0
+* Swift 5.0
+* XCode 10.2
 * iOS 9.0 (Min SDK)
 ```
 
@@ -27,9 +27,9 @@ it, simply add the following line to your Podfile:
 
 ```swift
 //Add Podfile
-pod "SCWebPreview" //Swift 4.2
+pod "SCWebPreview" //Swift 5.0
+pod "SCWebPreview", '~> 1.1.0' //Swift 4.2
 pod "SCWebPreview", '~> 1.0.0' //Swift 4.0
-pod "SCWebPreview", '~> 0.1.1' //Swift 3.0
 
 //After
 pod install

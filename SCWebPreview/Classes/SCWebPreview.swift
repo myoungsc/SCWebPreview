@@ -8,18 +8,22 @@
 
 import UIKit
 
-@IBDesignable public class SCWebPreview: NSObject {
+@IBDesignable public class SCWebPreview {
     
     var webPages: [String] = []
     var previewDatas: [Int: [String: String]] = [:]
     
-    //initializer webPages
+    /**
+     initializer webPages
+     */
     public func initWebPages(_ arr: [String]) {
         webPages = arr
     }
     
     //MARK: ## public Function ##
-    //start crawling for Web Preview
+    /**
+     start crawling for Web Preview
+     */
     public func startCrawling(completionHandler: @escaping () -> Void) {
         print("start crawling")
         for (index, content) in self.webPages.enumerated() {
@@ -51,7 +55,9 @@ import UIKit
         }
     }
     
-    //return preview data
+    /**
+     return preview data
+     */
     public func getPreviewDataFromIndex(_ index: Int) -> [String: String] {
         guard previewDatas.count > index else {
             print("error: receive index exceeded the limit")
@@ -60,7 +66,9 @@ import UIKit
         return previewDatas[index]!
     }
     
-    //method - open safari
+    /**
+     method - open safari
+     */
     public func openSafariFromUrl(_ index: Int) {
         let dic = getPreviewDataFromIndex(index)
         
@@ -79,7 +87,9 @@ import UIKit
     }
     
     //MARK: ## private Function ##
-    //arrangement og: data in html
+    /**
+     arrangement og: data in html
+     */
     private func htmlParser(_ data: Data, strUrl: String) -> [String: String] {
         
         var dic: [String: String] = [:]
@@ -121,7 +131,9 @@ import UIKit
         return dic
     }
     
-    //url from check and edit
+    /**
+     url from check and edit
+     */
     private func urlFromCheck(_ strUrl: String, completionHandler: @escaping (_ result: String) -> Void) {
         var webPage = strUrl
         

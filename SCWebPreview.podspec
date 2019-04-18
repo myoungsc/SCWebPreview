@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'SCWebPreview'
-  s.version          = '1.1.0'
+  s.version          = '1.2.0'
   s.summary          = 'Preview content in Website:)'
 
   s.description      = 'Preview content in Website'
@@ -13,4 +13,5 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '9.0'
   s.source_files = 'SCWebPreview/Classes/**/*'
 
+  s.swift_version = '5.0'
 end
